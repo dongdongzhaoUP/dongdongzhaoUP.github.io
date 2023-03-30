@@ -5,7 +5,7 @@
       <h1>Haodong Zhao</h1>
       <p><b>Ph.D candidate</b></p>
       <p><b>School of Cyber Science and Engineering， School of Electronic Information and Electrical Engineering Shanghai Jiao Tong University </b></p>
-      <p><b>E-mail：zhaohaodong@shtu.edu.cn</b></p>
+      <p><b>E-mail：zhaohaodong@sjtu.edu.cn</b></p>
       <p><b>Address：800 Dongchuan Road, Shanghai 200240, China</b></p>
       <a href="/index.html">中文版</a>
     </td>
