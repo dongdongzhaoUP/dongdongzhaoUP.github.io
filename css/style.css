@@ -1,0 +1,642 @@
+/* ============================================
+   Academic Homepage Stylesheet
+   ============================================ */
+
+/* CSS Variables for easy customization */
+:root {
+    --primary-color: #224b8d;
+    --primary-hover: #1a3a6e;
+    --text-color: #333333;
+    --text-light: #666666;
+    --border-color: #aaaaaa;
+    --background-light: #f8f9fa;
+    --background-white: #ffffff;
+    --highlight-bg: #fff3cd;
+    --max-width: 1000px;
+    --nav-height: 50px;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-height) + 20px);
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--text-color);
+    background-color: var(--background-white);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+/* ============================================
+   Navigation Bar
+   ============================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background-color: var(--primary-color);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+}
+
+.nav-menu li a {
+    display: block;
+    padding: 12px 18px;
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    text-decoration: none;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li a {
+        padding: 12px 20px;
+        text-align: center;
+    }
+}
+
+/* ============================================
+   Main Container
+   ============================================ */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: calc(var(--nav-height) + 30px);
+}
+
+/* ============================================
+   Profile Section
+   ============================================ */
+.profile-section {
+    margin-bottom: 30px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.profile-photo img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info .name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.profile-info .name-cn {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-light);
+}
+
+.profile-info .title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.profile-info .affiliation {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.profile-info .contact {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.profile-info .contact i {
+    width: 20px;
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .profile-photo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-photo img {
+        max-width: 180px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   Sections
+   ============================================ */
+.section {
+    margin-bottom: 30px;  /* Adjust this value to control space between sections */
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.section h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.section p {
+    margin-bottom: 15px;
+}
+
+.section ul {
+    margin-bottom: 15px;
+}
+
+.section ul li {
+    margin-bottom: 8px;
+}
+
+/* Research Interests */
+.research-interests {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    list-style: none;
+}
+
+.research-interests li {
+    padding: 8px 15px;
+    background-color: var(--background-light);
+    border-radius: 5px;
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Highlight Box (e.g., for recruiting notice) */
+.highlight-box {
+    background-color: var(--highlight-bg);
+    padding: 15px 20px;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+    margin-top: 20px;
+}
+
+.highlight-box i {
+    color: #856404;
+    margin-right: 8px;
+}
+
+/* ============================================
+   News Section
+   ============================================ */
+.news-list {
+    list-style: none;
+}
+
+.news-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+.news-date {
+    display: inline-block;
+    width: 90px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* ============================================
+   Project Cards
+   ============================================ */
+.project-card {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    transition: box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.project-content h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.project-links a:hover {
+    background-color: var(--primary-hover);
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        text-align: center;
+    }
+
+    .project-image img {
+        max-width: 300px;
+    }
+}
+
+/* ============================================
+   Teaching Section
+   ============================================ */
+.teaching-list {
+    list-style: none;
+}
+
+.teaching-list li {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: var(--background-light);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.course-level {
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: #28a745;
+    color: #ffffff;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+/* ============================================
+   Publications Section
+   ============================================ */
+.pub-note {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    padding: 10px 15px;
+    background-color: var(--background-light);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.pub-year {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ddd;
+}
+
+.publication-list {
+    list-style: none;
+}
+
+.publication-item {
+    padding: 7px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.publication-item:last-child {
+    border-bottom: none;
+}
+
+.pub-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 2px;
+}
+
+.pub-title a {
+    color: var(--text-color);
+}
+
+.pub-title a:hover {
+    color: var(--primary-color);
+}
+
+.pub-authors {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 2px;
+}
+
+.pub-venue {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.venue-highlight {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.pub-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pub-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    background-color: #6c757d;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pub-link:hover {
+    background-color: #5a6268;
+    text-decoration: none;
+}
+
+.toggle-btn {
+    background-color: #17a2b8;
+}
+
+.toggle-btn:hover {
+    background-color: #138496;
+}
+
+.abstract-box,
+.bibtex-box {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--background-light);
+    border-radius: 5px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.abstract-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.bibtex-box pre {
+    margin: 0;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* ============================================
+   Honors Section
+   ============================================ */
+.honors-list {
+    list-style: none;
+}
+
+.honors-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.honors-list li:last-child {
+    border-bottom: none;
+}
+
+.honor-year {
+    display: inline-block;
+    width: 60px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+    background-color: var(--background-light);
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .nav-toggle {
+        display: none;
+    }
+
+    .container {
+        padding-top: 0;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+}
