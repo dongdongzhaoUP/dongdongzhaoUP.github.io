@@ -1,7 +1,12 @@
 /* ============================================
    Academic Homepage Stylesheet
    ============================================ */
-
+   @font-face {
+    font-family: "MaoTi";
+    src: url("../fonts/maoti.woff2") format("woff2"),
+         url("../fonts/maoti.ttf") format("truetype");
+    font-display: swap;
+}
 /* CSS Variables for easy customization */
 :root {
     --primary-color: #224b8d;
@@ -176,10 +181,11 @@ ul {
 }
 
 .profile-info .name-cn {
-    font-size: 1.5rem;
+    font-size: 2.0rem;
     font-weight: 400;
     color: var(--text-light);
-    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "SimHei", sans-serif;
+    /* font-family: "Liu Jian Mao Cao", serif;  Google Font - elegant Chinese serif */
+    font-family: "MaoTi", cursive;
 }
 
 .profile-info .title {
