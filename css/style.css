@@ -311,16 +311,26 @@ ul {
 }
 
 .inline-logo {
-    width: 1.2em;
-    height: 1.2em;
-    flex: 0 0 1.2em;
-    margin-top: 0.1em;
+    display: block;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    flex: 0 0 20px;
+    margin-top: 1px;
     object-fit: contain;
 }
 
 .inline-logo-wide {
-    width: 5em;
-    flex-basis: 5em;
+    width: auto !important;
+    height: 11px !important;
+    min-width: 0;
+    max-width: none;
+    max-height: 11px;
+    flex-basis: auto;
+    align-self: center;
+    margin-top: 0;
     object-position: left center;
 }
 
