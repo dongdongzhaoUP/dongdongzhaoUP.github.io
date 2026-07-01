@@ -296,6 +296,34 @@ ul {
     margin-bottom: 8px;
 }
 
+.education-list,
+.affiliation-list,
+.internship-list {
+    list-style: none;
+}
+
+.education-list li,
+.affiliation-list li,
+.internship-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.inline-logo {
+    width: 1.2em;
+    height: 1.2em;
+    flex: 0 0 1.2em;
+    margin-top: 0.1em;
+    object-fit: contain;
+}
+
+.inline-logo-wide {
+    width: 5em;
+    flex-basis: 5em;
+    object-position: left center;
+}
+
 /* Research Interests */
 .research-interests {
     display: grid;
