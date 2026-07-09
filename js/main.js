@@ -28,6 +28,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Keep the News box at exactly eight rendered items, even when items wrap on small screens.
+function setNewsScrollHeight() {
+    const visibleItems = 8;
+    const newsScroll = document.querySelector('.news-scroll');
+
+    if (!newsScroll) {
+        return;
+    }
+
+    const newsItems = newsScroll.querySelectorAll('.news-list li');
+
+    if (newsItems.length <= visibleItems) {
+        newsScroll.style.maxHeight = 'none';
+        return;
+    }
+
+    const firstVisibleItem = newsItems[0];
+    const lastVisibleItem = newsItems[visibleItems - 1];
+    const visibleHeight = lastVisibleItem.offsetTop - firstVisibleItem.offsetTop + lastVisibleItem.offsetHeight;
+
+    newsScroll.style.maxHeight = `${visibleHeight}px`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    let resizeTimer;
+
+    setNewsScrollHeight();
+    window.addEventListener('load', setNewsScrollHeight);
+
+    window.addEventListener('resize', function() {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(setNewsScrollHeight, 150);
+    });
+});
+
 // Toggle Abstract/BibTeX boxes
 function toggleAbstract(id) {
     const element = document.getElementById(id);
